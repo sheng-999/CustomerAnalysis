@@ -70,7 +70,7 @@ fig2 = px.bar(
     title='Customer Distribution by City',
     color='index'
 )
-fig2.show()
+fig2.show()  # There aren't lots of geographic distribution difference.
 
 # 3. Satisfaction Level Analysis
 Satisfaction = df['Satisfaction Level'].value_counts().reset_index()
@@ -143,6 +143,8 @@ fig6 = sns.barplot(
     hue='Gender'
 )
 plt.show()
+#  There isn't male bronze member, all the male member have Gold or Silver membership type.
+#  According to the Average spend, the Male generally has higher spend than female.
 
 # 7. Top 3 Cities by Average Spending
 AverageSpendByCity = df.groupby('City')['Total Spend'].mean().reset_index().sort_values('Total Spend', ascending=False)
@@ -156,6 +158,9 @@ fig7 = px.bar(
     title='Average Spend by City'
 )
 fig7.show()
+
+# We can find that the ranking of Top 3 city by average spend:
+# 1.   San Fransisco  2.   New York 3.   Los Angeles
 
 # Average Rating Analysis : Mean, By Membership & Gender, By Age
 AverageRating = df['Average Rating'].mean()
@@ -180,6 +185,8 @@ fig9 = px.scatter(
     title='Average Rating by Age & Total Spend'
 )
 fig9.show()
+# Same with the correlations, the age has a weak negative relations with average rating.
+# The young clients with high rating also have high purchasing power.
 
 # Predictive Modeling
 from sklearn.model_selection import train_test_split
