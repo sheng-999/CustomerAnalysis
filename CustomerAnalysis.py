@@ -157,9 +157,10 @@ fig7 = px.bar(
 )
 # fig7.show()
 
-# Average Rating Analysis
+# Average Rating Analysis : Mean, By Membership & Gender, By Age
 AverageRating = df['Average Rating'].mean()
 print(AverageRating)   # 4.01
+
 
 AverageRatingByMembership = df.groupby(['Membership Type','Gender'])['Average Rating'].mean().reset_index().sort_values('Average Rating', ascending=False)
 print(AverageRatingByMembership)
@@ -170,4 +171,13 @@ fig8 = sns.barplot(
     hue='Gender'
 )
 plt.show()
+
+fig9 = px.scatter(
+    df,
+    x=df['Age'],
+    y=df['Average Rating'],
+    size=df['Total Spend']
+)
+fig9.show()
+
 
