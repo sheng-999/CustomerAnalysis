@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # import data
-df = pd.read_csv('Dataset test technique FRINGUANT - Data Analyst.csv')
+df = pd.read_csv('Dataset.csv')
 
 # Discovery of Data
 print(df.head())
