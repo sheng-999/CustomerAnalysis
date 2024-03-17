@@ -43,7 +43,7 @@ fig1 = px.pie(
     title='Gender Distribution',
     labels={'index': 'Gender', 'Gender': 'Count'}
 )
-# fig1.show()
+fig1.show()
 
 CustomerByAge = df['Age'].value_counts().reset_index()
 print(CustomerByAge)
@@ -56,7 +56,7 @@ fig1_2 = px.histogram(
     labels={'index': 'Age', 'Age': 'Count'}
 )
 fig1_2.update_layout(bargap=0.2)
-# fig1_2.show()
+fig1_2.show()
 
 # 2. Geographic Distribution
 CustomerByCity = df['City'].value_counts().reset_index()
@@ -70,7 +70,7 @@ fig2 = px.bar(
     title='Customer Distribution by City',
     color='index'
 )
-# fig2.show()
+fig2.show()
 
 # 3. Satisfaction Level Analysis
 Satisfaction = df['Satisfaction Level'].value_counts().reset_index()
@@ -84,7 +84,7 @@ fig3 = px.bar(
     labels={'index': 'Satisfaction Level', 'Satisfaction Level': 'Count'},
     title='Satisfaction Level Distribution'
 )
-# fig3.show()
+fig3.show()
 
 # 4. Membership
 MembershipByCustomer = df['Membership Type'].value_counts().reset_index()
@@ -96,7 +96,7 @@ fig4 = px.bar(
     labels={'index': 'Membership', 'Membership Type': 'Count'},
     title='Membership Distribution'
 )
-# fig4.show()
+fig4.show()
 
 # 5. Correlations
 Correlation = df.corr()
@@ -104,7 +104,7 @@ print(Correlation)
 fig5 = px.imshow(
     Correlation
 )
-# fig5.show()
+fig5.show()
 
 # Metric & KPIs
 # 1. Average Spend
@@ -144,7 +144,7 @@ fig6 = sns.barplot(
 )
 plt.show()
 
-# Top 3 Cities by Average Spending
+# 7. Top 3 Cities by Average Spending
 AverageSpendByCity = df.groupby('City')['Total Spend'].mean().reset_index().sort_values('Total Spend', ascending=False)
 AverageSpendByCity.columns = ['City', 'Average Spend']
 print(AverageSpendByCity)
@@ -155,7 +155,7 @@ fig7 = px.bar(
     color='City',
     title='Average Spend by City'
 )
-# fig7.show()
+fig7.show()
 
 # Average Rating Analysis : Mean, By Membership & Gender, By Age
 AverageRating = df['Average Rating'].mean()
@@ -195,5 +195,6 @@ Model.fit(X_train, y_train)
 y_pred = Model.predict(X_test)
 print(y_pred)
 
+## MSE
 mse = mean_squared_error(y_test, y_pred)
 print(mse)  # 0.0338
